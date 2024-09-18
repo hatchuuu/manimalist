@@ -1,13 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AnimeItems from "@/components/section/AnimeItems";
-import { fetchAnimeList } from "@/anime/useAnime";
+import { fecthAnimeByPage } from "@/anime/useAnime";
 import { Page, Loading, Header } from "@/components/section/allItems";
 
 const page = () => {
     const [page, setPage] = useState(1);
+    const { data, isLoading, refetch: refetchPage} = fecthAnimeByPage(page);
 
-    const { data, isLoading } = fetchAnimeList();
+const maxPage = data?.pagination.last_visible_page
+
+    useEffect(()=>{
+        refetchPage()
+    },[page, refetchPage])
 
 
     return (
@@ -29,7 +34,7 @@ const page = () => {
                     );
                 })}
             </div>
-            <Page page={data.pagination?.last_visible_page} setPage={setPage}/>
+            <Page page={page} setPage={setPage} maxPage={maxPage} />
         </div>
     );
 };

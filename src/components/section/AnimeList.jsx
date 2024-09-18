@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import AnimeItems from './AnimeItems'
-import { fetchAnimeList } from '@/anime/useAnime'
+import { fetchAnimeLimit } from '@/anime/useAnime'
 import { Loading, Header } from './allItems';
 
 const AnimeList = ({ title, linkTitle, link }) => {
-    const { data, isLoading } = fetchAnimeList(8)
+    const { data, isLoading } = fetchAnimeLimit(8)
     return (
         <div className='sm:mx-[30px] mx-5'>
             {

@@ -22,28 +22,33 @@ import { useQuery } from '@tanstack/react-query'
 //     }
 // }
 
-export const fetchAnimeList = (params) => {
+export const fetchAnimeLimit = (params) => {
   const keyword = Number(params)
-  let limit;
-  params && (limit = `?limit=${keyword}`)
-
-  const {data, isLoading} = useQuery({
+  return useQuery({
+    queryKey: ['fecthAnimeLimit'],
+    
     queryFn : async () =>{
-      const response = await axiosInstance(`/top/anime${limit}`)
+      const response = await axiosInstance(`/top/anime?limit=${keyword}`)
       return response.data
     }
   })
-  return{
-    data, isLoading
-  }
 }
 
-
-
+export const fecthAnimeByPage = (params)=>{
+const page = Number(params)
+ return useQuery({
+  queryKey: ['fecthAnimeByPage'],
+  queryFn : async ()=>{
+    const response = await axiosInstance(`/top/anime?page=${page}`)
+    return response.data
+  }
+ })
+}
 
 
 export const fetchAnimeByName =(keyword) =>{
   return useQuery({
+    queryKey: ['fetchAnimeByName'],
     queryFn : async () =>{
       const response = await axiosInstance(`/anime?q=${keyword}`)
       return response.data
