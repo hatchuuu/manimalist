@@ -1,19 +1,21 @@
 'use client'
+
+import { fetchingDataAnime } from '@/services'
+import {AnimeItems, Loading, Header} from '@/components/section/allItems.js'
+import{Button} from '@/components/ui/button'
 import React from 'react'
-import AnimeItems from './AnimeItems'
-import {  fetchingDataAnime } from '@/services'
-import { Loading, Header } from './allItems';
 
-const AnimeList =  ({ title, linkTitle, link }) => {
-    
-    const {data}=  fetchingDataAnime('top/anime','limit=8')
-
+const page = ({params}) => {
+  const {keyword} = params
+  const decodedKeyword = decodeURI(keyword)
+  const { data, isLoading } = fetchingDataAnime('anime',`q=${decodedKeyword}`)
+    // const { data: dataFtech } = fetchAnimeLimit(8)
     return (
         <div className='sm:mx-[30px] mx-5'>
             {
-                data 
-                ? <Header title={title} link={link} linkTitle={linkTitle} />
-                : <Loading />
+                isLoading ?
+                    <Loading />
+                    : <Header title={decodedKeyword} link={'link'} linkTitle={'linkTitle'} />
             }
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-5 gap-y-4 md:gap-y-5  my-6'>
                 {
@@ -29,4 +31,4 @@ const AnimeList =  ({ title, linkTitle, link }) => {
     )
 }
 
-export default AnimeList
+export default page

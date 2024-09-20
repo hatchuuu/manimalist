@@ -4,24 +4,16 @@
 
 
 @layer components {
-  .font-outfit {
-  font-family: 'Outfit', sans-serif;
-}
 
-.bg-color-day{
-  background-color: #F6F8FF;
-}
-.bg-color-dark{
-  background-color: #252627;
-}
+
 .neu{
-  @apply border-2 border-black py-3 px-2 transition duration-100 ease-in-out hover:-translate-y-[3px] hover:-translate-x-[3px] hover:shadow-[3px_3px_0px_#000000];
+  @apply border-2 border-border dark:border-darkBorder hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-light dark:hover:shadow-dark;
+}
+.neu-pressed{
+  @apply neu active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-pressed;
 }
 
-.bg-color-hijau{
-  background-color:#9eff02 ;
-}
-
+/* loading */
 .loading {
   width:45px;
   height:60px;
@@ -38,6 +30,5 @@
     50%    {background-position:0% 0%  ,50% 0%  ,100% 0%  }
     66.67% {background-position:0% 100%,50% 0%  ,100% 0%  }
     83.33% {background-position:0% 100%,50% 100%,100% 0%  }
-
 }
 }

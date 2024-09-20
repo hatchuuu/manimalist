@@ -39,13 +39,25 @@ const PaginationLink = ({
   size = "icon",
   ...props
 }) => (
+  // <a
+  //   aria-current={isActive ? "page" : undefined}
+  //   className={cn(buttonVariants({
+  //     variant: isActive ? "outline" : "ghost",
+  //     size,
+  //   }), className)}
+  //   {...props} />
   <a
-    aria-current={isActive ? "page" : undefined}
-    className={cn(buttonVariants({
-      variant: isActive ? "outline" : "ghost",
+  aria-current={isActive ? 'page' : undefined}
+  className={cn(
+    buttonVariants({
+      variant: 'noShadow',
       size,
-    }), className)}
-    {...props} />
+    }),
+    className,
+    isActive && 'bg-black text-darkText dark:bg-black',
+  )}
+  {...props}
+/>
 )
 PaginationLink.displayName = "PaginationLink"
 
@@ -59,7 +71,7 @@ const PaginationPrevious = ({
     className={cn("gap-1 pl-2.5", className)}
     {...props}>
     <ChevronLeftIcon className="h-4 w-4" />
-    <span>Previous</span>
+    <span>Prev</span>
   </PaginationLink>
 )
 PaginationPrevious.displayName = "PaginationPrevious"

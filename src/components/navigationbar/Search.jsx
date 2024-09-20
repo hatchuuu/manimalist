@@ -21,11 +21,11 @@ const Search = () => {
   }
 
   return (
-    <div className="flex items-center justify-end w-full">
+    <div className="flex w-full sm:justify-end">
       <Input className="w-full sm:w-[200px]" type="text" placeholder="Search Anime ..."
         ref={searchRef} onKeyDown={handleSearch} />
-      <Button type="submit" onClick={handleSearch}>
-        <MagnifyingGlass className='w-max' />
+      <Button type="submit" onClick={handleSearch} className='active:neu-pressed ms-3'>
+        <MagnifyingGlass className='w-max font-bold' />
       </Button>
     </div>
   )

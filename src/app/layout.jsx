@@ -12,11 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`antialiased font-outfit dark:bg-color-dark bg-color-day`}>
+      <body className={`antialiased font-neu bg-bg`}>
         <TanstackProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <Navbar className="flex-none" />
+            <main className="flex-grow flex items-center justify-center">
+              {children}
+            </main>
+            <Footer className="flex-none" />
+          </div>
         </TanstackProvider>
       </body>
     </html>
