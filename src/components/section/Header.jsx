@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 const Header = ({ title, link, linkTitle }) => {
     return (
-
         <div className='flex justify-between'>
             <p className='mt-5 text-base sm:text-lg sm:font-semibold'>{title}</p>
             {

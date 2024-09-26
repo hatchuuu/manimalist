@@ -46,13 +46,16 @@ const page = ({ params }) => {
               {/* Sinopsis (akan berada di atas pada layar < sm dan di bawah pada layar > sm) */}
               <div className='sm:text-lg'>
                 <p className='font-semibold pb-1'>Sinopsis</p>
-                <p>{data.data.synopsis}</p>
+                <p className='text-justify'>{data.data.synopsis}</p>
               </div>
             </div>
 
           </div>
         </div>
-        {/* <VideoPlayer youtubeId={data.data.trailer.youtube_id}/> */}
+        
+        
+        <VideoPlayer youtubeId={data.data.trailer.youtube_id}/>
+   
       </div>
       :
       <Loading />
