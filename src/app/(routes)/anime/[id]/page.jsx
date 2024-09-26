@@ -1,7 +1,7 @@
 'use client'
 import { Loading } from '@/components/section/allItems'
 import { Button } from '@/components/ui/button'
-import VideoPlayer from '@/components/utils/videoPlayer'
+import VideoPlayer from '@/components/utils/VideoPlayer'
 import { fetchingDataAnime } from '@/services'
 import Image from 'next/image'
 import React from 'react'
