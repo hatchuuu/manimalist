@@ -1,21 +1,21 @@
-'use client'
 import { Loading } from '@/components/section/allItems'
 import { Button } from '@/components/ui/button'
-import VideoPlayer from '@/components/utils/videoPlayer'
-import { fetchingDataAnime } from '@/services'
+import VideoPlayer from '@/components/utils/VideoPlayer'
+import { getAnimeData } from '@/services'
 import Image from 'next/image'
 import React from 'react'
 
-const page = ({ params }) => {
+const page = async ({ params }) => {
   const { id } = params
   // const { data } = fetchingDataAnime(`anime/${id}/full`)
 
-  const { data } = fetchingDataAnime(`anime/${id}/full`)
+  const data = await getAnimeData(`anime/${id}/full`)
+  console.log(data)
 
   return (
     data ?
       <div className='sm:mt-10 sm:mx-10 sm:mb-5 m-6'>
-        <div className="p-5 sm:p-8 border-2 border-border rounded-xl bg-white">
+         <div className="p-5 sm:p-8 border-2 border-border rounded-xl bg-white">
           <div className='flex justify-between items-center'>
             <h1 className='font-semibold text-lg sm:text-xl sm:font-bold'>{(data.data.title).toUpperCase()}</h1>
             <Button className='sm:text-base sm:font-semibold active:neu-pressed'>{data.data.year}</Button>
@@ -40,7 +40,7 @@ const page = ({ params }) => {
                 <Button className='sm:text-base sm:font-bold active:neu-pressed font-semibold h-max flex justify-end items-center flex-col'>
                   <p>EPISODE</p>
                   <p>{data.data.episodes}</p>
-                </Button>
+                </Button> 
               </div>
 
               {/* Sinopsis (akan berada di atas pada layar < sm dan di bawah pada layar > sm) */}
