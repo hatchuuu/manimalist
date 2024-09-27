@@ -1,13 +1,14 @@
 import { Loading } from '@/components/section/allItems'
 import { Button } from '@/components/ui/button'
 import VideoPlayer from '@/components/utils/VideoPlayer'
+
 import { getAnimeData } from '@/services'
+
 import Image from 'next/image'
 import React from 'react'
 
 const page = async ({ params }) => {
   const { id } = params
-  // const { data } = fetchingDataAnime(`anime/${id}/full`)
 
   const data = await getAnimeData(`anime/${id}/full`)
   console.log(data)
