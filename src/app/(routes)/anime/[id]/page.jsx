@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button'
 import VideoPlayer from '@/components/utils/VideoPlayer'
 
 import { getAnimeData } from '@/services'
-
 import Image from 'next/image'
 import React from 'react'
 

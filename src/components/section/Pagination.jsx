@@ -8,7 +8,6 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 import usePagination from '@/hooks/usePagination'; // Pastikan path sesuai
-import { Input } from '@/components/ui/input';
 
 const Page = ({ page, setPage, maxPage }) => {
     const { handlePrevPage, handleNextPage } = usePagination(setPage);
